@@ -16,6 +16,12 @@ const PORT = process.env.PORT || 8080;
 let userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
 
+let tripRoutes = require('./routes/tripRoutes');
+app.use('/api/trips', tripRoutes);
+
+let bookingRoutes = require('./routes/bookingRoutes');
+app.use('/api/bookings', bookingRoutes);
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}.`);
 });

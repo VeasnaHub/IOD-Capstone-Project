@@ -2,8 +2,8 @@
 
 const Models = require("../models");
 
-const getUsers = (res) => {
-    Models.User.findAll({}).then(function (data) {
+const getBookings = (res) => {
+    Models.Booking.findAll({}).then(function (data) {
         res.send({ result: 200, data: data })
     }).catch(err => {
         console.log(err);
@@ -11,8 +11,8 @@ const getUsers = (res) => {
     });
 };
 
-const createUser = (data, res) => {
-    Models.User.create(data).then(function (data) {
+const requestBooking = (data, res) => {
+    Models.Booking.create(data).then(function (data) {
         res.send({ result: 200, data: data })
     }).catch(err => {
         console.log(err);
@@ -20,8 +20,8 @@ const createUser = (data, res) => {
     });
 };
 
-const updateUser = (req, res) => {
-    Models.User.update(req.body, {
+const confirmBooking = (req, res) => {
+    Models.Booking.update(req.body, {
         where: { id: req.params.id }
     }).then(function (data) {
         res.send({ result: 200, data: data })
@@ -32,8 +32,8 @@ const updateUser = (req, res) => {
     });
 }
 
-const deleteUser = (req, res) => {
-    Models.User.destroy({
+const cancelBooking = (req, res) => {
+    Models.Booking.destroy({
         where: { id: req.params.id }
     }).then(function (data) {
         res.send({ result: 200, data: data })
@@ -45,8 +45,7 @@ const deleteUser = (req, res) => {
 }
 
 module.exports = {
-    getUsers,
-    createUser,
-    updateUser,
-    deleteUser
+    getBookings,
+    requestBooking,
+    cancelBooking
 }

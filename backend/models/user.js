@@ -6,7 +6,7 @@ const sequelizeInstance = dbConnect.Sequelize;
 class User extends Model { }
 
 User.init({
-    userId: { type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
+    id: { type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true },
     firstName: { type: DataTypes.STRING },
     lastName: { type: DataTypes.STRING },
     dateOfBirth: { type: DataTypes.DATE, allowNull: false, required: true },
