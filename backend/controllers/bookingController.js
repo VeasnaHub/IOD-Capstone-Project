@@ -11,6 +11,39 @@ const getBookings = (res) => {
     });
 };
 
+const fetctBookingsByDriverId = (req, res) => {
+    Models.Booking.findAll({
+        where: { driverId: req.params.id }
+    }).then(function (data) {
+        res.send({ result: 200, data: data })
+    }).catch(err => {
+        console.log(err);
+        res.send({ result: 500, error: err.message });
+    });
+};
+
+const fetctBookingsByPassengerId = (req, res) => {
+    Models.Booking.findAll({
+        where: { passengerId: req.params.id }
+    }).then(function (data) {
+        res.send({ result: 200, data: data })
+    }).catch(err => {
+        console.log(err);
+        res.send({ result: 500, error: err.message });
+    });
+};
+
+const fetctBookingsByTripId = (req, res) => {
+    Models.Booking.findAll({
+        where: { tripId: req.params.id }
+    }).then(function (data) {
+        res.send({ result: 200, data: data })
+    }).catch(err => {
+        console.log(err);
+        res.send({ result: 500, error: err.message });
+    });
+};
+
 const requestBooking = (data, res) => {
     Models.Booking.create(data).then(function (data) {
         res.send({ result: 200, data: data })
@@ -20,7 +53,7 @@ const requestBooking = (data, res) => {
     });
 };
 
-const confirmBooking = (req, res) => {
+const updateBooking = (req, res) => {
     Models.Booking.update(req.body, {
         where: { id: req.params.id }
     }).then(function (data) {
@@ -30,7 +63,7 @@ const confirmBooking = (req, res) => {
         console.log(err);
         res.send({ result: 500, error: err.message });
     });
-}
+};
 
 const cancelBooking = (req, res) => {
     Models.Booking.destroy({
@@ -42,10 +75,14 @@ const cancelBooking = (req, res) => {
         console.log(err);
         res.send({ result: 500, error: err.message });
     });
-}
+};
 
 module.exports = {
     getBookings,
+    fetctBookingsByDriverId,
+    fetctBookingsByPassengerId,
+    fetctBookingsByTripId,
+    updateBooking,
     requestBooking,
     cancelBooking
 }

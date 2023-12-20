@@ -13,6 +13,7 @@ Trip.init({
     departureTime: { type: DataTypes.TIME, allowNull: false, required: true },
     unitPrice: { type: DataTypes.DECIMAL, allowNull: false, required: true },
     availableSeats: { type: DataTypes.INTEGER, allowNull: false, required: true },
+    // driverId: { type: DataTypes.INTEGER, allowNull: false, references: {model: users, key: 'id'} }
 },
 {
     sequelize: sequelizeInstance,

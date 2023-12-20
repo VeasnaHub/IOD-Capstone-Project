@@ -13,9 +13,29 @@ async function init() {
 init();
 
 User.hasMany(Trip, {
-    foreignKey: 'driverId'
+    foreignKey: 'driverId',
+    allowNull: false
 });
-Trip.belongsTo(User);
+Trip.belongsTo(User, {
+    foreignKey: 'driverId',
+    allowNull: false
+});
+
+Trip.hasMany(Booking, {
+    allowNull: false
+});
+Booking.belongsTo(Trip, {
+    allowNull: false
+});
+
+User.hasMany(Booking, {
+    foreignKey: 'passengerId',
+    allowNull: false
+});
+Booking.belongsTo(User, {
+    foreignKey: 'passengerId',
+    allowNull: false
+});
 
 module.exports = {
     User,

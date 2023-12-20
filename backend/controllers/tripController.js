@@ -11,6 +11,17 @@ const getTrips = (res) => {
     });
 };
 
+const fetchTripsByDriverId = (req, res) => {
+    Models.Trip.findAll({
+        where: { driverId: req.params.id }
+    }).then(function (data) {
+        res.send({ result: 200, data: data })
+    }).catch(err => {
+        console.log(err);
+        res.send({ result: 500, error: err.message });
+    });
+};
+
 const addTrip = (data, res) => {
     Models.Trip.create(data).then(function (data) {
         res.send({ result: 200, data: data })
@@ -46,6 +57,7 @@ const deleteTrip = (req, res) => {
 
 module.exports = {
     getTrips,
+    fetchTripsByDriverId,
     addTrip,
     editTrip,
     deleteTrip
