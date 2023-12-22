@@ -1,15 +1,14 @@
 import Logo from "./logo";
-import SignUpForm from "./SignUpForm";
 
-function SignInUpPageBody() {
+function SignInUpPageBody(props) {
     return (
         <div className="SignInUpPageBody body-container">
             <div className="body-item">
-                <p className="l-font green-font light-font">Your sustainable journey begins here with <Logo />!</p>
-                <img className="body-item" src="../src/assets/Signinpage.png" alt="photo of yellow car and people" style={{ width: "100%", height: "auto" }}/>
+                <p className="l-font green-font light-font">{props.text}<Logo />!</p>
+                <img className="body-item" src={props.source} alt="photo of yellow car and people" style={{ width: "100%", height: "auto" }}/>
             </div>
             <div className="body-item">
-                <SignUpForm />
+                {props.children}
             </div>
         </div>
     )
