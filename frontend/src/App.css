@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&family=Mate&family=Montserrat:wght@400;500;600;700&display=swap');
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 2rem */
+  background-color: #FFFFFF
+}
+
+* {
+  font-family: 'Carattere', cursive;
+  font-family: 'Mate', serif;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4A6173;
+  
+}
+
+.NavBarHome {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px
+}
+
+.nav-container {
+  display: flex;
+  justify-content: flex-end
+}
+
+.nav-item {
+  font-weight: 500;
+  height: 30px;
+  width: 120px;
+  text-align: center;
+  padding-top: 11px;
+  border-radius: 5px
+}
+
+.l-font {
+  font-size: 2rem
+}
+
+.m-font {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+
+.s-font {
+  font-size: 0.6rem;
+}
+
+.green-font {
+  color: #39BB4E
+}
+
+.yellow-font {
+  color: #ffc801
+}
+
+.white-font {
+  color: #FFFFFF
+}
+
+.bold-font {
+  font-weight: 700
+}
+
+.light-font {
+  font-weight: 300
+}
+
+li {
+  list-style: none;
+  line-height: 1.5rem;
+}
+
+.green-button {
+  background-color: #39BB4E;
+}
+
+.body-container {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 50px;
+}
+
+.body-item {
+  width: 50%;
+}
+
+.Button {
+  color: #FFFFFF;
+  background-color: #39BB4E;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  height: 40px;
+  width: 120px;
+  font-weight: 700
+}
+
+.Footer {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(57,187,78, 0.7);
+  align-items: center;
+  height: 150px
+}
+
+img {
+  width: 5000px;
+}
+
+.SignInUpPageBody {
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 30px;
+  border-radius: 5px;
+  height: 400px;
+  width: 450px
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  margin: 10px
+}
