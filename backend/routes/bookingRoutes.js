@@ -6,16 +6,16 @@ router.get('/', (req, res) => {
     Controllers.bookingController.getBookings(res);
 });
 
-// router.get('/bookingsbydriverid/:id', (req, res) => {
-    // Controllers.bookingController.fetctBookingsByDriverId(req, res);
-// });
+router.get('/bookingsbydriverid', (req, res) => {
+    Controllers.bookingController.fetchBookingsByDriverId(req, res);
+});
 
 router.get('/bookingsbypassengerid/:id', (req, res) => {
-    Controllers.bookingController.fetctBookingsByPassengerId(req, res);
+    Controllers.bookingController.fetchBookingsByPassengerId(req, res);
 });
 
 router.get('/bookingsbytripid/:id', (req, res) => {
-    Controllers.bookingController.fetctBookingsByTripId(req, res);
+    Controllers.bookingController.fetchBookingsByTripId(req, res);
 });
 
 router.post('/request', (req, res) => {

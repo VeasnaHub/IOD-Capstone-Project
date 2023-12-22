@@ -11,18 +11,17 @@ const getBookings = (res) => {
     });
 };
 
-const fetctBookingsByDriverId = (req, res) => {
-    Models.Booking.findAll({
-        where: { driverId: req.params.id }
-    }).then(function (data) {
-        res.send({ result: 200, data: data })
-    }).catch(err => {
-        console.log(err);
-        res.send({ result: 500, error: err.message });
-    });
+// The below is to fetch all the bookings for trip for a given driver id "?driverId=number"
+const fetchBookingsByDriverId = (req, res) => {
+    Models.Booking.findAll({ include: { model: Models.Trip, where: req.query }})
+        .then((data) => res.send({ result: 200, data: data }))
+        .catch((err) => {
+            console.log(err);
+            res.send({ result: 500, error: err.message });
+        });
 };
 
-const fetctBookingsByPassengerId = (req, res) => {
+const fetchBookingsByPassengerId = (req, res) => {
     Models.Booking.findAll({
         where: { passengerId: req.params.id }
     }).then(function (data) {
@@ -33,7 +32,7 @@ const fetctBookingsByPassengerId = (req, res) => {
     });
 };
 
-const fetctBookingsByTripId = (req, res) => {
+const fetchBookingsByTripId = (req, res) => {
     Models.Booking.findAll({
         where: { tripId: req.params.id }
     }).then(function (data) {
@@ -79,9 +78,9 @@ const cancelBooking = (req, res) => {
 
 module.exports = {
     getBookings,
-    fetctBookingsByDriverId,
-    fetctBookingsByPassengerId,
-    fetctBookingsByTripId,
+    fetchBookingsByDriverId,
+    fetchBookingsByPassengerId,
+    fetchBookingsByTripId,
     updateBooking,
     requestBooking,
     cancelBooking

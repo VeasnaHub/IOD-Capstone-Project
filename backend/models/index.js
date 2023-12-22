@@ -13,25 +13,30 @@ async function init() {
 init();
 
 User.hasMany(Trip, {
-    foreignKey: 'driverId',
-    allowNull: false
-});
+    foreignKey: {name: 'driverId', allowNull: false},
+    onDelete: 'CASCADE'}
+);
+
 Trip.belongsTo(User, {
-    foreignKey: 'driverId',
-    allowNull: false
-});
+    foreignKey: { name: 'driverId', allowNull: false},
+    onDelete: 'CASCADE'}
+);
 
 Trip.hasMany(Booking, {
-    allowNull: false
-});
+    foreignKey: { name: 'tripId', allowNull: false},
+    onDelete: 'CASCADE'}
+);
+
 Booking.belongsTo(Trip, {
-    allowNull: false
-});
+    foreignKey: { name: 'tripId', allowNull: false},
+    onDelete: 'CASCADE'}
+);
 
 User.hasMany(Booking, {
-    foreignKey: 'passengerId',
-    allowNull: false
-});
+    foreignKey: { name: 'passengerId', allowNull: false},
+    onDelete: 'CASCADE'}
+);
+
 Booking.belongsTo(User, {
     foreignKey: 'passengerId',
     allowNull: false
