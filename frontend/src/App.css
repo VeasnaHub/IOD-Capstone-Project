@@ -30,17 +30,8 @@
   justify-content: flex-end
 }
 
-.nav-item {
-  font-weight: 500;
-  height: 30px;
-  width: 120px;
-  text-align: center;
-  padding-top: 11px;
-  border-radius: 5px
-}
-
 .l-font {
-  font-size: 2rem
+  font-size: 1.2rem
 }
 
 .m-font {
@@ -77,28 +68,44 @@ li {
   line-height: 1.5rem;
 }
 
-.green-button {
-  background-color: #39BB4E;
-}
-
 .body-container {
   display: flex;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 50px;
+  padding: 50px 20px;
 }
 
 .body-item {
   width: 50%;
 }
 
-.Button {
+.default-button {
+  color: #4A6173;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  height: 35px;
+  width: 120px;
+  font-weight: 700
+}
+
+.green-button {
   color: #FFFFFF;
   background-color: #39BB4E;
   border: none;
   border-radius: 5px;
   font-size: 0.8rem;
-  height: 40px;
+  height: 35px;
+  width: 120px;
+  font-weight: 700
+}
+
+.yellow-button {
+  color: #FFFFFF;
+  background-color: #ffc801;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  height: 35px;
   width: 120px;
   font-weight: 700
 }
@@ -137,5 +144,21 @@ input {
   height: 30px;
   border-radius: 5px;
   border: 1px solid rgba(74, 97, 115, 0.5);
-  margin: 10px
+  margin: 10px 0px
+}
+
+.in-body {
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 30px;
+  border-radius: 5px;
+  height: 400px;
+  margin: 50px 20px;
+}
+
+.CompleteProfileBody {
+  display: flex;
+  gap: 100px;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
 }

@@ -5,7 +5,7 @@ function SignInUpPageBody(props) {
         <div className="SignInUpPageBody body-container">
             <div className="body-item">
                 <p className="l-font green-font light-font">{props.text}<Logo />!</p>
-                <img className="body-item" src={props.source} alt="photo of yellow car and people" style={{ width: "100%", height: "auto" }}/>
+                <img className="body-item" src={props.source} alt={props.alternative} style={{ width: "100%", height: "auto" }}/>
             </div>
             <div className="body-item">
                 {props.children}
