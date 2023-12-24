@@ -10,7 +10,7 @@ function LandingPageBody() {
                 <p className="m-font green-font bold-font">Join us in reducing carbon footprints, one shared journey at a time!</p>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     <p className="l-font green-font light-font">Go carpooling, Go <Logo />, Go</p>
-                    <Button name="SIGN UP" />
+                    <Button background="green-button" name="SIGN UP" />
                 </div>
             </div>
             <div className="body-item">

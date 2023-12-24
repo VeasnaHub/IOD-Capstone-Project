@@ -7,8 +7,8 @@ function SignUpForm() {
             <input placeholder="Email"/>
             <input placeholder="Password"/>
             <input placeholder="Date of Birth"/>
-            <p className="s-font grey-font">User must be 18 years of age or older to be able to create an account.</p>
-            <Button name="CREATE AN ACCOUNT" />
+            <p className="s-font grey-font" style={{ marginTop: "0px"}}>User must be 18 years of age or older to be able to create an account.</p>
+            <Button background="green-button" name="CREATE AN ACCOUNT" />
         </form>
     )
 }

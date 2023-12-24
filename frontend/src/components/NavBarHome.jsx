@@ -6,12 +6,12 @@ function NavBarHome() {
     <div className="NavBarHome">
       <Logo />
       <nav className="nav-container">
-        <li className="nav-item m-font bold-font">HOW IT WORKS</li>
-        <li className="nav-item m-font bold-font">FAQ</li>
-        <li className="nav-item m-font bold-font">CONACT US</li>
-        <li className="nav-item m-font bold-font">SIGN IN</li>
+        <Button background="default-button" name="HOW IT WORKS" />
+        <Button background="default-button" name="FAQ" />
+        <Button background="default-button" name="CONTACT" />
+        <Button background="default-button" name="SIGN IN" />
         {/* <li className="nav-item m-font bold-font white-font green-button">SIGN UP</li> */}
-        <Button name="SIGN UP" />
+        <Button background="green-button" name="SIGN UP" />
       </nav>
     </div>
   );
