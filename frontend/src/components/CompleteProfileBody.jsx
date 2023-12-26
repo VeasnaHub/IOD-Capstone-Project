@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 function CompleteProfileBody() {
+
+    const navigate = useNavigate();
+
     return (
         <div className="CompleteProfileBody in-body">
             <div>
@@ -17,7 +21,7 @@ function CompleteProfileBody() {
                 <input type="text"></input><br/>
                 <label>Profile Summary:</label><br/>
                 <input type="text"></input><br/>
-                <Button background="green-button" name="SAVE" />
+                <button className="green-button" onClick={() => navigate("/registration")}>SAVE</button>
             </div>
         </div>
     )

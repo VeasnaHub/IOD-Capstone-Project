@@ -8,7 +8,7 @@ function BookingStatusPage() {
     return (
         <div className="BookingStatusPage">
             <LoggedNavBar />
-            <DashBoardTitle title="BOOKING STATUS"/>
+            <DashBoardTitle title="YOUR BOOKING STATUS"/>
             <BookingStatusBody />
             <Footer />
 

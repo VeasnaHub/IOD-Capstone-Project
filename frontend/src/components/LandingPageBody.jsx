@@ -1,7 +1,10 @@
-import Button from "./Button";
+import { useNavigate } from "react-router-dom";
 import Logo from "./logo";
 
 function LandingPageBody() {
+
+    const navigate = useNavigate();
+
     return (
         <div className="LandingPageBody body-container">
             <div className="body-item">
@@ -10,7 +13,7 @@ function LandingPageBody() {
                 <p className="green-font bold-font">Join us in reducing carbon footprints, one shared journey at a time!</p>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     <p className="l-font green-font light-font">Go carpooling, Go <Logo />, Go</p>
-                    <Button background="green-button" name="SIGN UP" />
+                    <button className="green-button" onClick={() => navigate("/signup")}>SIGN UP</button>
                 </div>
             </div>
             <div className="body-item">

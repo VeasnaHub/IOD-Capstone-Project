@@ -7,7 +7,7 @@ function BookingRequestPage() {
     return (
         <div className="BookingRequestPage">
             <LoggedNavBar />
-            <DashBoardTitle title="BOOKING REQUEST" />
+            <DashBoardTitle title="YOUR BOOKING REQUEST" />
             <BookingRequestBody />
             <Footer />
         </div>

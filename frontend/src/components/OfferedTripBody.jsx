@@ -1,18 +1,16 @@
-import Button from "./Button";
 
-function BookingRequestBody () {
+function OfferedTripBody() {
     return (
-        <div className="BookingRequestBody in-body">
+        <div className="OfferedTripBody in-body">
             <table>
                 <thead>
                     <tr>
-                        <th>Booking #</th>
                         <th>Trip #</th>
                         <th>Departure</th>
                         <th>Destination</th>
                         <th>Service Day</th>
                         <th>Time</th>
-                        <th>Requested Seats</th>
+                        <th>Seats</th>
                         <th>Unit Price</th>
                         <th>Status</th>
                         <th className="action-column">Action</th>
@@ -20,24 +18,24 @@ function BookingRequestBody () {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>001</td>
-                        <td>001</td>
-                        <td>Auckland</td>
+                        <td>0001</td>
                         <td>Flat Bush</td>
+                        <td>Auckland CBD</td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>Pending</td>
+                        <td>08:00</td>
+                        <td>4</td>
+                        <td>10$</td>
+                        <td>Active</td>
                         <td className="action-column">
-                            <Button name="Confirm" background="green-button" />
-                            <Button name="Decline" background="yellow-button" />
+                            <button className="green-button">Edit Trip</button>
+                            <button className="yellow-button">Delete Trip</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+
         </div>
     )
 }
 
-export default BookingRequestBody;
+export default OfferedTripBody;

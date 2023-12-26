@@ -91,8 +91,8 @@ button {
   border-radius: 5px;
   font-size: 0.8rem;
   height: 35px;
-  width: 120px;
-  font-weight: 700
+  width: 130px;
+  font-weight: 700;
 }
 
 .green-button {
@@ -221,4 +221,12 @@ th {
 
 tr > th {
   font-weight: 700
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
 }

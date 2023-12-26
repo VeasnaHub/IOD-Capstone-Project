@@ -1,20 +1,21 @@
-import Button from "./Button";
 import Logo from "./logo";
+import { useNavigate } from "react-router-dom";
 
 function NavBarHome() {
+
+  const navigate = useNavigate();
+  
   return (
     <div className="NavBarHome">
       <Logo />
       <nav className="nav-container">
-        <Button background="default-button" name="HOW IT WORKS" />
-        <Button background="default-button" name="FAQ" />
-        <Button background="default-button" name="CONTACT" />
-        <Button background="default-button" name="SIGN IN" />
-        {/* <li className="nav-item m-font bold-font white-font green-button">SIGN UP</li> */}
-        <Button background="green-button" name="SIGN UP" />
+        <button className="default-button" onClick={() => navigate("/")}>HOME</button>
+        <button className="default-button">HOW IT WORKS</button>
+        <button className="default-button">CONTACT US</button>
+        <button className="default-button" onClick={() => navigate("/signin")}>SIGN IN</button>
+        <button className="green-button" onClick={() => navigate("/signup")}>SIGN UP</button>
       </nav>
     </div>
-  );
+  )
 }
-
 export default NavBarHome;
