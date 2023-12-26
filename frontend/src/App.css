@@ -11,7 +11,7 @@
   font-family: 'Carattere', cursive;
   font-family: 'Mate', serif;
   font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: #4A6173;
   
@@ -70,11 +70,18 @@ li {
 
 .body-container {
   display: flex;
-  padding: 50px 20px;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+  align-items: flex-start;
+  justify-content: space-evenly;
 }
 
 .body-item {
-  width: 50%;
+  width: 600px;
+}
+
+button {
+  margin: 2px
 }
 
 .default-button {
@@ -117,13 +124,13 @@ li {
   align-items: center;
   height: 150px
 }
-
+/* 
 img {
   width: 5000px;
-}
+} */
 
 .SignInUpPageBody {
-  gap: 100px;
+  gap: 40px;
   align-items: center;
   justify-content: center;
 }
@@ -136,7 +143,7 @@ form {
   padding: 30px;
   border-radius: 5px;
   height: 400px;
-  width: 450px
+  width: 350px
 }
 
 input {
@@ -189,4 +196,29 @@ input {
   width: 368px;
   line-height: 5px;
   margin: 0px 10px 10px 10px;
+}
+
+.DashBoardTitle {
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 15px;
+  border-radius: 5px;
+  height: auto;
+  margin: 20px 20px;
+  background-color: rgba(74, 97, 115, 0.1)
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+.action-column {
+  text-align: center;
+  width: 250px
+}
+
+tr > th {
+  font-weight: 700
 }
