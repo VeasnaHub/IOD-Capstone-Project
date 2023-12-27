@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Carattere&family=Mate&family=Montserrat:wght@400;500;600;700&display=swap');
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  /* padding: 2rem */
+  background-color: #FFFFFF
+}
+
+* {
+  font-family: 'Carattere', cursive;
+  font-family: 'Mate', serif;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4A6173;
+  
+}
+
+.NavBarHome {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px
+}
+
+.nav-container {
+  display: flex;
+  justify-content: flex-end
+}
+
+.l-font {
+  font-size: 1.2rem
+}
+
+.m-font {
+  font-size: 0.8rem;
+  line-height: 1.5rem;
+}
+
+.s-font {
+  font-size: 0.6rem;
+}
+
+.green-font {
+  color: #39BB4E
+}
+
+.yellow-font {
+  color: #ffc801
+}
+
+.white-font {
+  color: #FFFFFF
+}
+
+.bold-font {
+  font-weight: 700
+}
+
+.light-font {
+  font-weight: 300
+}
+
+li {
+  list-style: none;
+  line-height: 1.5rem;
+}
+
+.body-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.body-item {
+  width: 600px;
+}
+
+button {
+  margin: 2px
+}
+
+.default-button {
+  color: #4A6173;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  height: 35px;
+  width: 130px;
+  font-weight: 700;
+}
+
+.green-button {
+  color: #FFFFFF;
+  background-color: #39BB4E;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  height: 35px;
+  width: 120px;
+  font-weight: 700
+}
+
+.yellow-button {
+  color: #FFFFFF;
+  background-color: #ffc801;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  height: 35px;
+  width: 120px;
+  font-weight: 700
+}
+
+.Footer {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(57,187,78, 0.7);
+  align-items: center;
+  height: 150px
+}
+/* 
+img {
+  width: 5000px;
+} */
+
+.SignInUpPageBody {
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 30px;
+  border-radius: 5px;
+  height: 400px;
+  width: 350px
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  margin: 10px 0px
+}
+
+.in-body {
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 30px;
+  border-radius: 5px;
+  height: 400px;
+  margin: 20px 20px;
+}
+
+.CompleteProfileBody {
+  display: flex;
+  gap: 100px;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.SearchBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 15px;
+  border-radius: 5px;
+  height: auto;
+  margin: 20px 20px;
+}
+
+.SearchTripBody {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  margin: 10px 10px 10px 10px
+}
+
+.TripCard {
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 15px;
+  border-radius: 5px;
+  width: 368px;
+  line-height: 5px;
+  margin: 0px 10px 10px 10px;
+}
+
+.DashBoardTitle {
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 15px;
+  border-radius: 5px;
+  height: auto;
+  margin: 20px 20px;
+  background-color: rgba(74, 97, 115, 0.1)
+}
+
+table {
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+.action-column {
+  text-align: center;
+  width: 250px
+}
+
+tr > th {
+  font-weight: 700
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+}
