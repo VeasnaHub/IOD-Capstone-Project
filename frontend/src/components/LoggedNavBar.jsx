@@ -1,10 +1,13 @@
 import Logo from "./logo";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useUserContext } from "../context/UserContext";
 
 function LoggedNavBar() {
 
   const navigate = useNavigate();
+  const { currentUser, handleUpdateUser } = useUserContext();
+  const [loggedIn, setLoggedIn] = useState(currentUser.firstName);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleDropdownToggle = () => {
@@ -27,8 +30,8 @@ function LoggedNavBar() {
             </div>
           )}
           </div>
-        <button className="default-button" onClick={() => navigate("/loggedout")}>LOG OUT</button>
-        <button className="green-button">USERNAME</button>
+        <button className="default-button" onClick={() => { handleUpdateUser({}); setLoggedIn(false); navigate("/loggedout")}}>LOG OUT</button>
+        <button className="default-button green-font">Welcome {currentUser.firstName}!</button>
       </nav>
         </div>
     )
