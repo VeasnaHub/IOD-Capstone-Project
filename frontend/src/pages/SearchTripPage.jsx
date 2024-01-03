@@ -1,6 +1,6 @@
 import LoggedNavBar from "../components/LoggedNavBar";
 import Footer from "../components/Footer";
-import SearchTripBody from "../components/SearchTripBody";
+import TripList from "../components/TripList";
 import SearchBar from "../components/SearchBar";
 
 
@@ -9,7 +9,7 @@ function SearchTripPage() {
         <div className="SearchTripPage">
             <LoggedNavBar />
             <SearchBar />
-            <SearchTripBody />
+            <TripList />
             <Footer />
         </div>
     )
