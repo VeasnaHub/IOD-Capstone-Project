@@ -1,8 +1,51 @@
+import { useNavigate } from "react-router-dom";
+import { useUserContext } from "../context/UserContext";
+import { useState } from "react";
+import axios from "axios";
 
 function AddTripCard() {
+    
+    const [result, setResult] = useState('');
+    const {currentUser, handleUpdateUser} = useUserContext();
+    const navigate = useNavigate();
+    const [isDialogOpen, setDialogOpen] = useState(true);
+
+
+    const handleCloseDialog = () => {
+        setDialogOpen(false);
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const data = new FormData(event.currentTarget);
+        data.append('driverId', (currentUser.id));
+
+        const serviceDays = Array.from(data.getAll('serviceDay'));
+        data.delete('serviceDay');
+
+        data.append('serviceDay', serviceDays);
+
+        axios.post('/api/trips/add', Object.fromEntries(data.entries()))
+        .then(response => {
+            let result = response.data.result;
+            let trip = response.data.data;
+
+            console.log(trip);
+            setResult(result);
+
+            if (trip) {
+                handleCloseDialog(false);
+                navigate('/offeredtrips');
+            }
+        }).catch(err => {
+            console.log(err)
+            setResult(err.message + ': ' + err.response.data.result);
+        });
+    };
 
     return (
-        <div className="AddTripCard">
+        <form className="AddTripCard" onSubmit={handleSubmit}>
             <div className="title-top">
                 <h1 className="white-font bold-font">ADD TRIP</h1>
             </div>
@@ -23,33 +66,33 @@ function AddTripCard() {
             </div>
             <div className="service-box">
                 <div>
-                    <input className="check-box" type="checkbox" id="monday" name="monday" value="monday"></input>
+                    <input className="check-box" type="checkbox" id="monday" name="serviceDay" value=" Mon"></input>
                     <label htmlFor="monday">Monday</label>
                 </div>
                 <div>
-                    <input className="check-box" type="checkbox" id="tuesday" name="tuesday" value="tuesday"></input>
+                    <input className="check-box" type="checkbox" id="tuesday" name="serviceDay" value=" Tue"></input>
                     <label htmlFor="tuesday">Tuesday</label>
                 </div>
                 <div>
-                    <input className="check-box" type="checkbox" id="wednesday" name="wednesday" value="wednesday"></input>
+                    <input className="check-box" type="checkbox" id="wednesday" name="serviceDay" value=" Wed"></input>
                     <label htmlFor="wednesday">Wednesday</label>
                 </div>
                 <div>
-                    <input className="check-box" type="checkbox" id="thursday" name="thursday" value="thursday"></input>
+                    <input className="check-box" type="checkbox" id="thursday" name="serviceDay" value=" Thu"></input>
                     <label htmlFor="thursday">Thursday</label>
                 </div>
             </div>
             <div className="service-box">
                 <div>
-                    <input className="check-box" type="checkbox" id="friday" name="friday" value="friday"></input>
+                    <input className="check-box" type="checkbox" id="friday" name="serviceDay" value=" Fri"></input>
                     <label htmlFor="friday">Friday</label>
                 </div>
                 <div>
-                    <input className="check-box" type="checkbox" id="saturday" name="saturday" value="saturday"></input>
+                    <input className="check-box" type="checkbox" id="saturday" name="serviceDay" value=" Sat"></input>
                     <label htmlFor="saturday">Saturday</label>
                 </div>
                 <div>
-                    <input className="check-box" type="checkbox" id="sunday" name="sunday" value="sunday"></input>
+                    <input className="check-box" type="checkbox" id="sunday" name="serviceDay" value=" Sun"></input>
                     <label htmlFor="sunday">Sunday</label>
                 </div>
             </div>
@@ -63,7 +106,7 @@ function AddTripCard() {
                 <label>Price($):</label>
             </div>
             <div className="price-input">
-                <input type="number" name="price" id="price"></input>
+                <input type="number" name="unitPrice" id="unitPrice"></input>
             </div>
             <div>
                 <label>Available Seats:</label>
@@ -71,8 +114,8 @@ function AddTripCard() {
             <div className="available-seats-input">
                 <input type="number" name="availableSeats" id="availableSeats"></input>
             </div>
-            <button className="green-button trip-add-button">ADD</button>
-        </div>
+            <button className="green-button trip-add-button" type="submit">ADD</button>
+        </form>
     )
 }
 
