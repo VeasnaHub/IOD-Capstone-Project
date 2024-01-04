@@ -1,8 +1,19 @@
-import Button from "./Button";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useUserContext } from "../context/UserContext";
+import useBookings from "../hooks/useBookings";
 
-function BookingRequestBody () {
+
+function BookingList() {
+    const { currentUser } = useUserContext();
+    const { bookings, message, fetchData } = useBookings(currentUser);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return (
-        <div className="BookingRequestBody in-body">
+        <div className="BookingList in-body">
             <table>
                 <thead>
                     <tr>
@@ -12,7 +23,7 @@ function BookingRequestBody () {
                         <th>Destination</th>
                         <th>Service Day</th>
                         <th>Time</th>
-                        <th>Requested Seats</th>
+                        <th>Seats</th>
                         <th>Unit Price</th>
                         <th>Status</th>
                         <th className="action-column">Action</th>
@@ -20,18 +31,17 @@ function BookingRequestBody () {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>001</td>
-                        <td>001</td>
-                        <td>Auckland</td>
-                        <td>Flat Bush</td>
                         <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td>Pending</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                         <td className="action-column">
-                            <Button name="Confirm" background="green-button" />
-                            <Button name="Decline" background="yellow-button" />
+                            <button className="yellow-button">Cancel</button>
                         </td>
                     </tr>
                 </tbody>
@@ -40,4 +50,4 @@ function BookingRequestBody () {
     )
 }
 
-export default BookingRequestBody;
+export default BookingList;

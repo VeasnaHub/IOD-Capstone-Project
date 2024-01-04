@@ -59,7 +59,7 @@ const registerUser = async (req, res) => {
         const userMetadata = await Models.User.create({
             email: email.toLowerCase(),
             password: encryptedPassword,
-            dateOfBirth: dateOfBirth
+            dateOfBirth
         });
 
         const user = userMetadata.get({plain: true})

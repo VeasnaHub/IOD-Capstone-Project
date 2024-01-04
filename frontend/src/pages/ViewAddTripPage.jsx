@@ -2,7 +2,7 @@ import AddTripDialog from "../components/AddTripDialog";
 import DashBoardTitle from "../components/DashBoardTitle";
 import Footer from "../components/Footer";
 import LoggedNavBar from "../components/LoggedNavBar";
-import OfferedTripBody from "../components/OfferedTripBody";
+import OfferedTripList from "../components/OfferedTripList";
 
 
 function ViewAddTripPage() {
@@ -12,7 +12,7 @@ function ViewAddTripPage() {
             <LoggedNavBar />
             <DashBoardTitle title="YOUR OFFERED TRIPS"/>
             <AddTripDialog />
-            <OfferedTripBody />
+            <OfferedTripList />
             <Footer />
         </div>
     )

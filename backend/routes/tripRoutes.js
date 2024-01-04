@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Controllers = require("../controllers");
-const { verifyToken } = require("../middleware/auth");
 
-router.get('/', verifyToken, (req, res) => {
+router.get('/', (req, res) => {
     Controllers.tripController.getTrips(res);
 });
 
@@ -12,7 +11,7 @@ router.get('/tripsbydriverid/:id', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
-    Controllers.tripController.addTrip(req.body, res)
+    Controllers.tripController.addTrip(req, res)
 });
 
 router.put('/:id', (req, res) => {

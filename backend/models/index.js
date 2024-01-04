@@ -38,9 +38,9 @@ User.hasMany(Booking, {
 );
 
 Booking.belongsTo(User, {
-    foreignKey: 'passengerId',
-    allowNull: false
-});
+    foreignKey: { name: 'passengerId', allowNull: false},
+    onDelete: 'CASCADE'}
+);
 
 module.exports = {
     User,

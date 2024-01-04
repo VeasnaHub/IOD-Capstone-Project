@@ -10,7 +10,7 @@ router.get('/bookingsbydriverid', (req, res) => {
     Controllers.bookingController.fetchBookingsByDriverId(req, res);
 });
 
-router.get('/bookingsbypassengerid/:id', (req, res) => {
+router.get('/bookingsbypassengerid', (req, res) => {
     Controllers.bookingController.fetchBookingsByPassengerId(req, res);
 });
 
@@ -19,7 +19,7 @@ router.get('/bookingsbytripid/:id', (req, res) => {
 });
 
 router.post('/request', (req, res) => {
-    Controllers.bookingController.requestBooking(req.body, res);
+    Controllers.bookingController.requestBooking(req, res);
 });
 
 router.put('/:id', (req, res) => {

@@ -1,5 +1,4 @@
 "use strict";
-
 const Models = require("../models");
 
 const getTrips = (res) => {
@@ -22,13 +21,31 @@ const fetchTripsByDriverId = (req, res) => {
     });
 };
 
-const addTrip = (data, res) => {
-    Models.Trip.create(data).then(function (data) {
-        res.send({ result: 200, data: data })
-    }).catch(err => {
+const addTrip = async (req, res) => {
+    try {
+        const { departure, destination, serviceDay, departureTime, unitPrice, availableSeats, driverId } = req.body;
+
+        if (!(departure && destination && serviceDay && departureTime && unitPrice && availableSeats && driverId)) {
+            res.status(400).json({ result: "All input is required"});
+            return;
+        }
+
+        const tripMetaData = await Models.Trip.create({
+            departure,
+            destination,
+            serviceDay,
+            departureTime,
+            unitPrice,
+            availableSeats,
+            driverId,
+        });
+        
+        const trip = tripMetaData.get({plain: true});
+        res.status(201).json({ result: "Trip successfully added", data: trip});
+    } catch (err) {
         console.log(err);
         res.send({ result: 500, error: err.message });
-    });
+    };
 };
 
 const editTrip = (req, res) => {
