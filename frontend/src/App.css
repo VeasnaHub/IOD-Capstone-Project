@@ -19,10 +19,10 @@
 
 .NavBarHome {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px
+  padding-left: 10px;
+  padding-right: 10px
 }
 
 .nav-container {
@@ -136,18 +136,15 @@ button {
   align-items: center;
   height: 150px
 }
-/* 
-img {
-  width: 5000px;
-} */
 
 .SignInUpPageBody {
   gap: 40px;
   align-items: center;
   justify-content: center;
+  flex-flow: wrap-reverse;
 }
 
-form {
+.SignInForm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,12 +155,28 @@ form {
   width: 350px
 }
 
+.SignUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 30px;
+  border-radius: 5px;
+  height: 400px;
+  width: 350px
+
+}
+
 input {
   width: 300px;
   height: 30px;
   border-radius: 5px;
   border: 1px solid rgba(74, 97, 115, 0.5);
   margin: 10px 0px
+}
+
+input:hover {
+  border: 1px solid rgba(255,200,1,0.6)
 }
 
 .in-body {
@@ -197,11 +210,12 @@ input {
 .TripList {
   display: flex;
   flex-flow: wrap;
-  justify-content: flex-start;
-  margin: 10px 10px 10px 10px
+  justify-content: center;
+  margin: 10px 10px 10px 10px;
+  
 }
 
-.TripCard {
+.trip-card {
   border: 1px solid rgba(74, 97, 115, 0.5);
   padding: 15px;
   border-radius: 5px;
@@ -268,13 +282,15 @@ tr > th {
   grid-template-rows: 40px 40px 40px 130px 40px 40px 40px 40px;
   /* border: 1px solid rgba(74, 97, 115, 0.5); */
   width: 500px;
+  height: 420px;
+  border-radius: 5px;
+  padding: 0px;
   border-radius: 5px;
 }
 
 .title-top {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  text-align: center;
   background-color: #39BB4E;
   grid-column-start: 1;
   grid-column-end: 4;
@@ -287,6 +303,7 @@ tr > th {
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
+  justify-self: end;
 }
 
 .destination-input {
@@ -294,12 +311,14 @@ tr > th {
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 4;
+  justify-self: end;
 }
 
 .service-box {
   display: flex;
   flex-direction: column;
   align-self: start;
+  margin-left: 3px
 }
 
 .check-box {
@@ -335,6 +354,7 @@ tr > th {
   grid-column-end: 4;
   grid-row-start: 5;
   grid-row-end: 6;
+  justify-self: end;
 }
 
 .price-input {
@@ -342,13 +362,15 @@ tr > th {
   grid-column-end: 4;
   grid-row-start: 6;
   grid-row-end: 7;
+  justify-self: end;
 }
 
-.availbe-seats-input {
+.available-seats-input {
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row-start: 7;
   grid-row-end: 8;
+  justify-self: end;
 }
 
 .trip-add-button {
@@ -373,7 +395,7 @@ tr > th {
 
 .dialog-content {
   background: #fff;
-  padding: 20px;
+  padding: 5px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   max-width: 500px;
@@ -386,4 +408,3 @@ tr > th {
   align-items: center;
   margin-bottom: 0px;
 }
-
