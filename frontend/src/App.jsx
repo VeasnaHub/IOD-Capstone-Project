@@ -9,7 +9,6 @@ function App() {
     <UserProvider>
       <AppRoutes />
     </UserProvider>
-    {/* <AddTripCard /> */}
     </>
   )
 }
