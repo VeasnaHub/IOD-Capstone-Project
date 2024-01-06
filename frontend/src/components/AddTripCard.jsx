@@ -9,7 +9,8 @@ function AddTripCard() {
     const {currentUser, handleUpdateUser} = useUserContext();
     const navigate = useNavigate();
     const [isDialogOpen, setDialogOpen] = useState(true);
-
+    const [errMsg, setErrMsg] = useState("");
+    const [confirmMsg, setConfirmMsg] = useState("");
 
     const handleCloseDialog = () => {
         setDialogOpen(false);
@@ -19,11 +20,18 @@ function AddTripCard() {
         event.preventDefault();
 
         const data = new FormData(event.currentTarget);
+
+        const isEmptyInput = Array.from(data.values()).some((value) => !value.trim());
+
+        if (isEmptyInput) {
+            setErrMsg("All input is required.");
+            return;
+        }
+
         data.append('driverId', (currentUser.id));
 
         const serviceDays = Array.from(data.getAll('serviceDay'));
         data.delete('serviceDay');
-
         data.append('serviceDay', serviceDays);
 
         axios.post('/api/trips/add', Object.fromEntries(data.entries()))
@@ -33,11 +41,10 @@ function AddTripCard() {
 
             console.log(trip);
             setResult(result);
-
-            if (trip) {
-                handleCloseDialog(false);
-                navigate('/offeredtrips');
-            }
+            setErrMsg("");
+            setConfirmMsg("Trip has been added. Thank you!")
+            handleCloseDialog();
+            navigate('/offeredtrips');
         }).catch(err => {
             console.log(err)
             setResult(err.message + ': ' + err.response.data.result);
@@ -47,7 +54,7 @@ function AddTripCard() {
     return (
         <form className="AddTripCard" onSubmit={handleSubmit}>
             <div className="title-top">
-                <h1 className="white-font bold-font">ADD TRIP</h1>
+                <h1 className="white-font bold-font">ADD TRIP </h1>
             </div>
             <div>
                 <label>Departure:</label>
@@ -100,7 +107,7 @@ function AddTripCard() {
                 <label>Departure Time:</label>
             </div>
             <div className="departure-time-input">
-                <input type="text" name="departureTime" id="departureTime"></input>
+                <input type="time" name="departureTime" id="departureTime"></input>
             </div>
             <div>
                 <label>Price($):</label>
@@ -115,6 +122,8 @@ function AddTripCard() {
                 <input type="number" name="availableSeats" id="availableSeats"></input>
             </div>
             <button className="green-button trip-add-button" type="submit">ADD</button>
+            {errMsg && <p className="error-message">{errMsg}</p>}
+            {confirmMsg && <p className="confirm-message white-font">{confirmMsg}</p>}
         </form>
     )
 }
