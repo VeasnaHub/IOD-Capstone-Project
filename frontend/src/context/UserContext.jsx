@@ -1,14 +1,19 @@
-import {useState, useContext, createContext} from "react";
+import { useState, useContext, createContext, useEffect } from "react";
 
 const UserContext = createContext();
 
 export const UserProvider = (props) => {
+  const storedUser = JSON.parse(localStorage.getItem('user')) || {};
 
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState(storedUser);
 
   const handleUpdateUser = (user) => {
     setCurrentUser(user);
   };
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(currentUser));
+  }, [currentUser]);
 
   return (
     <UserContext.Provider value={{ currentUser, handleUpdateUser }}>
@@ -20,4 +25,3 @@ export const UserProvider = (props) => {
 export const useUserContext = () => {
   return useContext(UserContext);
 };
-
