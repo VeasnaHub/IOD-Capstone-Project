@@ -30,6 +30,44 @@
   justify-content: flex-end
 }
 
+@media (max-width: 768px) {
+  .nav-container {
+    display: none;
+  }
+
+  .menu-open .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: absolute; 
+    top: 40px;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    z-index: 1;
+  }
+
+  .hamburger-icon {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    color: #39BB4E;
+    font-weight: 700;
+    top: 3px;
+    right: 10px;
+    z-index: 2;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburger-icon {
+    display: none;
+  }
+}
+
 .l-font {
   font-size: 1.2rem
 }
@@ -68,16 +106,16 @@ li {
   line-height: 1.5rem;
 }
 
-.body-container {
+.LandingPageBody {
   display: flex;
   flex-wrap: wrap;
   padding: 20px 20px;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-evenly;
 }
 
 .body-item {
-  width: 600px;
+  width: 450px;
 }
 
 button {
@@ -134,14 +172,32 @@ button {
   justify-content: space-around;
   background: rgba(57,187,78, 0.7);
   align-items: center;
-  height: 150px
+  height: 150px;
+  flex-flow: wrap
 }
 
-.SignInUpPageBody {
-  gap: 40px;
-  align-items: center;
-  justify-content: center;
-  flex-flow: wrap-reverse;
+.SignInPageBody {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.SignUpPageBody {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+.LogOutPageBody {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+  align-items: flex-start;
+  justify-content: space-evenly;
 }
 
 .SignInForm {
@@ -152,7 +208,9 @@ button {
   padding: 30px;
   border-radius: 5px;
   height: 400px;
-  width: 350px
+  width: 320px;
+  margin-left: 30px;
+  margin-right: 60px;
 }
 
 .SignUpForm {
@@ -163,8 +221,9 @@ button {
   padding: 30px;
   border-radius: 5px;
   height: 400px;
-  width: 350px
-
+  width: 320px;
+  margin-left: 30px;
+  margin-right: 60px;
 }
 
 input {
@@ -181,9 +240,9 @@ input:hover {
 
 .in-body {
   border: 1px solid rgba(74, 97, 115, 0.5);
-  padding: 30px;
+  padding: 10px;
   border-radius: 5px;
-  height: 400px;
+  min-height: 400px;
   margin: 20px 20px;
 }
 
@@ -192,6 +251,7 @@ input:hover {
   gap: 100px;
   justify-content: space-evenly;
   align-items: flex-start;
+  flex-flow: wrap;
 }
 
 .SearchBar {
@@ -216,12 +276,46 @@ input:hover {
 }
 
 .trip-card {
+  display: grid;
+  grid-template-columns: 85px 240px 50px;
+  grid-template-rows: 200px 30px;
   border: 1px solid rgba(74, 97, 115, 0.5);
   padding: 15px;
   border-radius: 5px;
   width: 368px;
   line-height: 5px;
   margin: 0px 10px 10px 10px;
+}
+
+.trip-card-section1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.trip-card-section2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2
+}
+
+.trip-card-section3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2 
+}
+
+.trip-card-section4 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .DashBoardTitle {
@@ -233,7 +327,7 @@ input:hover {
   background-color: rgba(74, 97, 115, 0.1)
 }
 
-table {
+/* table {
   width: 100%;
 }
 
@@ -247,7 +341,7 @@ th {
 
 tr > th {
   font-weight: 700
-}
+} */
 
 .dropdown-container {
   position: relative;
@@ -407,4 +501,41 @@ tr > th {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0px;
+}
+
+.error-message {
+  background-color: #ffc801;
+}
+
+.confirm-message {
+  background-color: #39BB4E;
+}
+
+/* Apply these styles for screens smaller than 600px */
+@media (max-width: 2600px) {
+  .fixed-size-table {
+    max-width: 100%; /* Allow the table to take up 100% of the screen width */
+    overflow-x: auto; /* Add horizontal scrollbar if the content overflows */
+    display: block; /* Change the display to block to enable the scrollbar */
+  }
+}
+
+/* Apply these styles for screens 600px and larger */
+.fixed-size-table {
+  max-width: 2000px; /* Set a fixed width for the table */
+  /* table-layout: fixed; Fix the table layout to the specified width */
+}
+
+/* Optional: Style your table further as needed */
+.fixed-size-table table {
+  /* width: 100%; Ensure the table takes up 100% of the container */
+  border-collapse: collapse; /* Optional: Collapse borders for a cleaner look */
+}
+
+.fixed-size-table th, .fixed-size-table td {
+ margin: 0px;
+  padding: 8px; /* Optional: Add padding for better spacing */
+  text-align: center; /* Optional: Adjust text alignment as needed */
+  border-bottom: 1px solid rgba(74, 97, 115, 0.5);
+
 }
