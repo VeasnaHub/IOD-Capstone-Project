@@ -10,6 +10,10 @@ router.get('/tripsbydriverid/:id', (req, res) => {
     Controllers.tripController.fetchTripsByDriverId(req, res);
 });
 
+router.get('/tripsbytripid/:id', (req, res) => {
+    Controllers.tripController.fetchdDataByTripId(req, res);
+});
+
 router.post('/add', (req, res) => {
     Controllers.tripController.addTrip(req, res)
 });
