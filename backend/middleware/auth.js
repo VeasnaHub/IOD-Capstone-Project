@@ -1,31 +1,35 @@
 require("dotenv").config();
-const jwt = require("jsonwebtoken"); // first do 'npm install jsonwebtoken'
+const jwt = require("jsonwebtoken");
 
+// Middleware function to verify JWT token
 const verifyToken = (req, res, next) => {
-    // get the token from the request - either in body, query params or header (header preferred)
+    // Extract token from request body, query parameters, or headers
     const token = req.body.token || req.query.token || req.headers["x-access-token"];
 
     if (!token) {
-        // bounce back to front end if no token
+        // If no token is provided, respond with an error
         return res.status(403).send("A token is required for authentication");
     }
 
     try {
-        // decode/unlock the token based on the KEY
+        // Verify the token using the secret key from the environment variables
         const decoded = jwt.verify(token, process.env.JWT_KEY);
-        // store decoded user data into request for controller function to use
+
+        // Attach decoded user information to the request object
         req.user = decoded;
 
-        // could also parse user here to check specific role
-        // if (decoded.role != 'admin') res.status(403).send("Admin users only")
-        console.log(decoded)
+        // Log the decoded information (optional)
+        console.log(decoded);
     } catch (err) {
+        // If the token is invalid, respond with an error
         return res.status(401).send("Invalid Token");
     }
-    // successful authorisation, execute next part of the route - ie. the controller function
+
+    // Continue to the next middleware or route handler
     return next();
 };
 
+// Function to create a new JWT token
 const createToken = (userId, userEmail) => {
     const token = jwt.sign(
         { user_id: userId, userEmail },
@@ -33,6 +37,7 @@ const createToken = (userId, userEmail) => {
         { expiresIn: "2h" }
     );
     return token;
-}
+};
 
+// Export the middleware and token creation functions
 module.exports = { verifyToken, createToken };

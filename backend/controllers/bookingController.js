@@ -2,16 +2,17 @@
 
 const Models = require("../models");
 
+// Get all bookings
 const getBookings = (res) => {
     Models.Booking.findAll({}).then(function (data) {
-        res.send({ result: 200, data: data })
+        res.send({ result: 200, data: data });
     }).catch(err => {
         console.log(err);
         res.send({ result: 500, error: err.message });
     });
 };
 
-// The below is to fetch all the bookings for trip for a given driver id "?driverId=number"
+// Fetch bookings for a given driver id
 const fetchBookingsByDriverId = (req, res) => {
     Models.Booking.findAll({ include: { model: Models.Trip, where: req.query } })
         .then((data) => res.send({ result: 200, data: data }))
@@ -21,6 +22,7 @@ const fetchBookingsByDriverId = (req, res) => {
         });
 };
 
+// Fetch bookings for a given passenger id
 const fetchBookingsByPassengerId = (req, res) => {
     Models.Booking.findAll({
         include: [
@@ -30,7 +32,6 @@ const fetchBookingsByPassengerId = (req, res) => {
         ],
         where: {
             passengerId: req.query.passengerId,
-            // Include other conditions if needed for the Booking model
         },
     })
         .then((data) => res.send({ result: 200, data: data }))
@@ -40,17 +41,19 @@ const fetchBookingsByPassengerId = (req, res) => {
         });
 };
 
+// Fetch bookings for a given trip id
 const fetchBookingsByTripId = (req, res) => {
     Models.Booking.findAll({
         where: { tripId: req.params.id }
     }).then(function (data) {
-        res.send({ result: 200, data: data })
+        res.send({ result: 200, data: data });
     }).catch(err => {
         console.log(err);
         res.send({ result: 500, error: err.message });
     });
 };
 
+// Request a booking
 const requestBooking = async (req, res) => {
     try {
         const { requestedSeat, tripId, passengerId } = req.body;
@@ -71,15 +74,15 @@ const requestBooking = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.send({ result: 500, error: err.message });
-    };
+    }
 };
 
-
+// Update a booking
 const updateBooking = (req, res) => {
     Models.Booking.update(req.body, {
         where: { id: req.params.id }
     }).then(function (data) {
-        res.send({ result: 200, data: data })
+        res.send({ result: 200, data: data });
     })
         .catch((err) => {
             console.log(err);
@@ -87,11 +90,12 @@ const updateBooking = (req, res) => {
         });
 };
 
+// Cancel a booking
 const cancelBooking = (req, res) => {
     Models.Booking.destroy({
         where: { id: req.params.id }
     }).then(function (data) {
-        res.send({ result: 200, data: data })
+        res.send({ result: 200, data: data });
     })
         .catch((err) => {
             console.log(err);
@@ -107,4 +111,4 @@ module.exports = {
     updateBooking,
     requestBooking,
     cancelBooking
-}
+};
