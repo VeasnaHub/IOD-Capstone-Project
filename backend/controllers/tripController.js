@@ -21,6 +21,17 @@ const fetchTripsByDriverId = (req, res) => {
     });
 };
 
+const fetchdDataByTripId = (req, res) => {
+    Models.Trip.findAll({
+        where: { id: req.params.id }
+    }).then(function (data) {
+        res.send({ result: 200, data: data })
+    }).catch(err => {
+        console.log(err);
+        res.send({ result: 500, error: err.message });
+    });
+};
+
 const addTrip = async (req, res) => {
     try {
         const { departure, destination, serviceDay, departureTime, unitPrice, availableSeats, driverId } = req.body;
@@ -75,6 +86,7 @@ const deleteTrip = (req, res) => {
 module.exports = {
     getTrips,
     fetchTripsByDriverId,
+    fetchdDataByTripId,
     addTrip,
     editTrip,
     deleteTrip
