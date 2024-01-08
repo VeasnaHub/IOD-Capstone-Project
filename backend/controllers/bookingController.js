@@ -13,7 +13,7 @@ const getBookings = (res) => {
 
 // The below is to fetch all the bookings for trip for a given driver id "?driverId=number"
 const fetchBookingsByDriverId = (req, res) => {
-    Models.Booking.findAll({ include: { model: Models.Trip, where: req.query }})
+    Models.Booking.findAll({ include: { model: Models.Trip, where: req.query } })
         .then((data) => res.send({ result: 200, data: data }))
         .catch((err) => {
             console.log(err);
@@ -23,23 +23,22 @@ const fetchBookingsByDriverId = (req, res) => {
 
 const fetchBookingsByPassengerId = (req, res) => {
     Models.Booking.findAll({
-      include: [
-        {
-          model: Models.Trip,
+        include: [
+            {
+                model: Models.Trip,
+            },
+        ],
+        where: {
+            passengerId: req.query.passengerId,
+            // Include other conditions if needed for the Booking model
         },
-      ],
-      where: {
-        passengerId: req.query.passengerId,
-        // Include other conditions if needed for the Booking model
-      },
     })
-      .then((data) => res.send({ result: 200, data: data }))
-      .catch((err) => {
-        console.log(err);
-        res.send({ result: 500, error: err.message });
-      });
-  };
-  
+        .then((data) => res.send({ result: 200, data: data }))
+        .catch((err) => {
+            console.log(err);
+            res.send({ result: 500, error: err.message });
+        });
+};
 
 const fetchBookingsByTripId = (req, res) => {
     Models.Booking.findAll({
@@ -52,13 +51,12 @@ const fetchBookingsByTripId = (req, res) => {
     });
 };
 
-
 const requestBooking = async (req, res) => {
     try {
-        const { requestedSeat, tripId, passengerId} = req.body;
+        const { requestedSeat, tripId, passengerId } = req.body;
 
         if (!(requestedSeat)) {
-            res.status(400).json({ result: "Please enter the number of seats"});
+            res.status(400).json({ result: "Please enter the number of seats" });
             return;
         }
 
@@ -67,9 +65,9 @@ const requestBooking = async (req, res) => {
             tripId,
             passengerId,
         });
-        
-        const booking = bookingMetaData.get({plain: true});
-        res.status(201).json({ result: "Booking successfully added", data: booking});
+
+        const booking = bookingMetaData.get({ plain: true });
+        res.status(201).json({ result: "Booking successfully added", data: booking });
     } catch (err) {
         console.log(err);
         res.send({ result: 500, error: err.message });
@@ -83,10 +81,10 @@ const updateBooking = (req, res) => {
     }).then(function (data) {
         res.send({ result: 200, data: data })
     })
-    .catch((err) => {
-        console.log(err);
-        res.send({ result: 500, error: err.message });
-    });
+        .catch((err) => {
+            console.log(err);
+            res.send({ result: 500, error: err.message });
+        });
 };
 
 const cancelBooking = (req, res) => {
@@ -95,10 +93,10 @@ const cancelBooking = (req, res) => {
     }).then(function (data) {
         res.send({ result: 200, data: data })
     })
-    .catch((err) => {
-        console.log(err);
-        res.send({ result: 500, error: err.message });
-    });
+        .catch((err) => {
+            console.log(err);
+            res.send({ result: 500, error: err.message });
+        });
 };
 
 module.exports = {
