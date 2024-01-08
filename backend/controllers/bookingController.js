@@ -23,17 +23,23 @@ const fetchBookingsByDriverId = (req, res) => {
 
 const fetchBookingsByPassengerId = (req, res) => {
     Models.Booking.findAll({
-        include: {
-            model: Models.Trip,
-            where: { passengerId: req.query.passengerId }
-        }
+      include: [
+        {
+          model: Models.Trip,
+        },
+      ],
+      where: {
+        passengerId: req.query.passengerId,
+        // Include other conditions if needed for the Booking model
+      },
     })
-    .then((data) => res.send({ result: 200, data: data }))
-    .catch((err) => {
+      .then((data) => res.send({ result: 200, data: data }))
+      .catch((err) => {
         console.log(err);
         res.send({ result: 500, error: err.message });
-    });
-};
+      });
+  };
+  
 
 const fetchBookingsByTripId = (req, res) => {
     Models.Booking.findAll({
