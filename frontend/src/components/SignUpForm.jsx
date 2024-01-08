@@ -16,7 +16,7 @@ function SignUpForm() {
         const userPassword = data.get('password');
         const userDateOfBirth = data.get('dateOfBirth');
 
-        // Validate age (assuming dateOfBirth is in YYYY-MM-DD format)
+        // Validate age
         const today = new Date();
         const birthDate = new Date(userDateOfBirth);
         const age = today.getFullYear() - birthDate.getFullYear();
@@ -71,6 +71,9 @@ function SignUpForm() {
             <p className="s-font grey-font" style={{ marginTop: "0px"}}>User must be 18 years of age or older to be able to create an account.</p>
             <button className="green-button" type="submit">CREATE AN ACCOUNT</button>
             {result && <p className="error-message">{result}</p>}
+            <p>
+                <a href="/signin">Already have an account? Please log in.</a>
+            </p>
         </form>
     );
 }

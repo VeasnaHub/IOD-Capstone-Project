@@ -82,8 +82,11 @@ function SignInForm() {
                         {loading ? "Logging in..." : "SUBMIT"}
                     </button>
                     {errMsg && <p className="error-message">{errMsg}</p>}
-                    <p className="reset-password-link">
+                    <p>
                         <a href="/reset-password">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a href="/signup">No account? Please sign up.</a>
                     </p>
                 </form>
             ) : (
