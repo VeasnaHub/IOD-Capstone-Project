@@ -1,4 +1,3 @@
-import Button from "./Button";
 
 function SearchBar() {
     return (
@@ -6,7 +5,7 @@ function SearchBar() {
             <input placeholder="Leaving from"></input>
             <input placeholder="Going to"></input>
             <input placeholder="Select service day"></input>
-            <Button name="FIND A RIDE" background="yellow-button" />
+            <button className="yellow-button">FIND A RIDE</button>
         </div>
     )
 }
