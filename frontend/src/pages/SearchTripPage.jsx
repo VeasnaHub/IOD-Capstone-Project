@@ -7,7 +7,7 @@ import SearchBar from "../components/SearchBar";
 function SearchTripPage() {
     return (
         <div className="SearchTripPage">
-            <LoggedNavBar />
+            <LoggedNavBar/>
             <SearchBar />
             <TripList />
             <Footer />
