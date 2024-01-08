@@ -25,6 +25,7 @@ function TripList() {
 
     const data = new FormData(event.currentTarget);
 
+    // Append necessary data for the booking request
     data.append("passengerId", currentUser.id);
     data.append("tripId", selectedTripId);
 
@@ -38,6 +39,7 @@ function TripList() {
         setResult(result);
 
         if (booking) {
+          // Redirect to bookings page after successful booking
           navigate("/bookings");
         }
       })
@@ -48,6 +50,8 @@ function TripList() {
   };
 
   console.log(tripLists);
+
+  // Filter out trips offered by the current user
   const filteredTrips = tripLists.filter(
     (trip) => trip.driverId !== currentUser.id
   );
@@ -61,7 +65,8 @@ function TripList() {
             Sorry, there is currently no trip being offered. Please come back
             and visit the page later!
           </p>
-          <img className="body-item"
+          <img
+            className="body-item"
             src="../src/assets/Searchtrippage.jpg"
             style={{ width: "500px", height: "auto" }}
           />

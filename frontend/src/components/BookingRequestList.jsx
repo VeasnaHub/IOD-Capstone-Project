@@ -5,13 +5,17 @@ import useBookingRequests from "../hooks/useBookingRequests";
 
 function BookingRequestList() {
   const { currentUser } = useUserContext();
+
+  // Using the custom hook to fetch booking requests
   const { bookingRequests, message, fetchData } =
     useBookingRequests(currentUser);
 
+  // Fetch data when the component mounts
   useEffect(() => {
     fetchData();
   }, []);
 
+  // Confirm a booking request
   const handleConfirm = async (bookingId) => {
     try {
       await axios.put(`/api/bookings/${bookingId}`, {
@@ -23,6 +27,7 @@ function BookingRequestList() {
     }
   };
 
+  // Update available seats when confirming a booking request
   const handleUpdateSeats = async (
     originalAvailableSeats,
     requestedSeat,
@@ -39,6 +44,7 @@ function BookingRequestList() {
     }
   };
 
+  // Decline a booking request
   const handleDecline = async (bookingId) => {
     try {
       await axios.put(`/api/bookings/${bookingId}`, {

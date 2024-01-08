@@ -8,7 +8,10 @@ const useBookingRequests = (userId) => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`/api/bookings/bookingsbydriverid?driverId=${userId.id}`, { headers: headers });
+      const response = await axios.get(
+        `/api/bookings/bookingsbydriverid?driverId=${userId.id}`,
+        { headers: headers }
+      );
       setBookingRequests(response.data.data);
       console.log(response.data.data);
     } catch (err) {

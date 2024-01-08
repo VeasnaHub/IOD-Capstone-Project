@@ -3,13 +3,13 @@ import NavBarHome from "../components/NavBarHome";
 import SignUpPageBody from "../components/SignUpPageBody";
 
 function SignUpPage() {
-    return (
-        <>
-        <NavBarHome />
-        <SignUpPageBody />
-        <Footer />
-        </>
-    )
+  return (
+    <>
+      <NavBarHome />
+      <SignUpPageBody />
+      <Footer />
+    </>
+  );
 }
 
 export default SignUpPage;

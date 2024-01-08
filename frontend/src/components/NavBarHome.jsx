@@ -6,6 +6,7 @@ function NavBarHome() {
   const navigate = useNavigate();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
+  // Toggle the menu for responsive design
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
   };
@@ -14,13 +15,21 @@ function NavBarHome() {
     <div className={`NavBarHome ${isMenuOpen ? "menu-open" : ""}`}>
       <Logo />
       <nav className={`nav-container ${isMenuOpen ? "menu-open" : ""}`}>
-        <button className="default-button" onClick={() => navigate("/")}>HOME</button>
+        <button className="default-button" onClick={() => navigate("/")}>
+          HOME
+        </button>
         <button className="default-button">HOW IT WORKS</button>
         <button className="default-button">COMMUNITY</button>
-        <button className="default-button" onClick={() => navigate("/signin")}>SIGN IN</button>
-        <button className="green-button" onClick={() => navigate("/signup")}>SIGN UP</button>
+        <button className="default-button" onClick={() => navigate("/signin")}>
+          SIGN IN
+        </button>
+        <button className="green-button" onClick={() => navigate("/signup")}>
+          SIGN UP
+        </button>
       </nav>
-      <button className="hamburger-icon" onClick={handleMenuToggle}>☰</button>
+      <button className="hamburger-icon" onClick={handleMenuToggle}>
+        ☰
+      </button>
     </div>
   );
 }

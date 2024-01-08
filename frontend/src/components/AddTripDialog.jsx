@@ -1,22 +1,24 @@
 import { useState } from "react";
 import AddTripCard from "./AddTripCard";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
 function AddTripDialog() {
-    const [isDialogOpen, setDialogOpen] = useState(false);
+  const [isDialogOpen, setDialogOpen] = useState(false);
 
-    const handleOpenDialog = () => {
-        setDialogOpen(true)
-    }
+  const handleOpenDialog = () => {
+    setDialogOpen(true);
+  };
 
-    const handleCloseDialog = () => {
-        setDialogOpen(false);
-      };
+  const handleCloseDialog = () => {
+    setDialogOpen(false);
+  };
 
-    return (
-        <div className="AddTripDialog">
-            <button className="green-button" onClick={handleOpenDialog}>OFFER NEW TRIP</button>
-            {isDialogOpen && (
+  return (
+    <div className="AddTripDialog">
+      <button className="green-button" onClick={handleOpenDialog}>
+        OFFER NEW TRIP
+      </button>
+      {isDialogOpen && (
         <div className="dialog-overlay">
           <div className="dialog-content">
             <div className="dialog-header">
@@ -27,8 +29,8 @@ function AddTripDialog() {
           </div>
         </div>
       )}
-        </div>
-    )
+    </div>
+  );
 }
 
 export default AddTripDialog;

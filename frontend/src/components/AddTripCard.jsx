@@ -1,35 +1,40 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { useState } from "react";
 import axios from "axios";
 
 function AddTripCard() {
   const { currentUser, handleUpdateUser } = useUserContext();
-  const navigate = useNavigate();
-  const [isDialogOpen, setDialogOpen] = useState(true);
+  // const navigate = useNavigate();
+  // const [isDialogOpen, setDialogOpen] = useState(true);
   const [errMsg, setErrMsg] = useState("");
   const [confirmMsg, setConfirmMsg] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    //// Extract data from the form
     const data = new FormData(event.currentTarget);
 
     const isEmptyInput = Array.from(data.values()).some(
       (value) => !value.trim()
     );
 
+    // Display error message if any input is empty
     if (isEmptyInput) {
       setErrMsg("All input is required.");
       return;
     }
 
+    // Add the driverId to the form data
     data.append("driverId", currentUser.id);
 
+    // Process the serviceDay values as an array
     const serviceDays = Array.from(data.getAll("serviceDay"));
     data.delete("serviceDay");
     data.append("serviceDay", serviceDays);
 
+    // Send the form data to the serve
     axios
       .post("/api/trips/add", Object.fromEntries(data.entries()))
       .then((response) => {

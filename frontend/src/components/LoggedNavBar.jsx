@@ -10,14 +10,17 @@ function LoggedNavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
+  // Toggle the dropdown for managing trips
   const handleDropdownToggle = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  // Toggle the menu for responsive design
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
   };
 
+  // Handle the logout functionality
   const handleLogout = () => {
     localStorage.removeItem("user");
     handleUpdateUser({});

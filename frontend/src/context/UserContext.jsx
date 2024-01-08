@@ -3,7 +3,7 @@ import { useState, useContext, createContext, useEffect } from "react";
 const UserContext = createContext();
 
 export const UserProvider = (props) => {
-  const storedUser = JSON.parse(localStorage.getItem('user')) || {};
+  const storedUser = JSON.parse(localStorage.getItem("user")) || {};
 
   const [currentUser, setCurrentUser] = useState(storedUser);
 
@@ -12,7 +12,7 @@ export const UserProvider = (props) => {
   };
 
   useEffect(() => {
-    localStorage.setItem('user', JSON.stringify(currentUser));
+    localStorage.setItem("user", JSON.stringify(currentUser));
   }, [currentUser]);
 
   return (

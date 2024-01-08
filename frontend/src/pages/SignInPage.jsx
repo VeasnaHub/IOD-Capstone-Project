@@ -3,13 +3,13 @@ import NavBarHome from "../components/NavBarHome";
 import SignInPageBody from "../components/SignInPageBody";
 
 function SignInPage() {
-    return (
-        <div>
-            <NavBarHome />
-            <SignInPageBody />
-            <Footer />
-        </div>
-    )
+  return (
+    <div>
+      <NavBarHome />
+      <SignInPageBody />
+      <Footer />
+    </div>
+  );
 }
 
 export default SignInPage;

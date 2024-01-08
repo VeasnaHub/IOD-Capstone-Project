@@ -4,14 +4,14 @@ import Footer from "../components/Footer";
 import LoggedNavBar from "../components/LoggedNavBar";
 
 function BookingRequestPage() {
-    return (
-        <div className="BookingRequestPage">
-            <LoggedNavBar />
-            <DashBoardTitle title="YOUR BOOKING REQUEST" />
-            <BookingRequestList />
-            <Footer />
-        </div>
-    )
+  return (
+    <div className="BookingRequestPage">
+      <LoggedNavBar />
+      <DashBoardTitle title="YOUR BOOKING REQUEST" />
+      <BookingRequestList />
+      <Footer />
+    </div>
+  );
 }
 
 export default BookingRequestPage;

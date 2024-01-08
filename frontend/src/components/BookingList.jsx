@@ -5,9 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 function BookingList() {
   const { currentUser } = useUserContext();
+
+  // Using the custom hook to fetch bookings
   const { bookings, message, fetchData } = useBookings(currentUser);
+
   const navigate = useNavigate();
 
+  // Fetch data when the component mounts
   useEffect(() => {
     fetchData();
   }, []);

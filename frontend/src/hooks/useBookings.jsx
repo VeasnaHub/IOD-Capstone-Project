@@ -8,7 +8,10 @@ const useBookings = (userId) => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`/api/bookings/bookingsbypassengerid?passengerId=${userId.id}`, { headers: headers });
+      const response = await axios.get(
+        `/api/bookings/bookingsbypassengerid?passengerId=${userId.id}`,
+        { headers: headers }
+      );
       setBookings(response.data.data);
       console.log(response.data.data);
     } catch (err) {
