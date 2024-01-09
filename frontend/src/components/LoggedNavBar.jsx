@@ -31,7 +31,7 @@ function LoggedNavBar() {
     <div className={`NavBarHome ${isMenuOpen ? "menu-open" : ""}`}>
       <Logo />
       <nav className={`nav-container ${isMenuOpen ? "menu-open" : ""}`}>
-        <button className="default-button">HOME</button>
+        <button className="default-button">COMMUNITY</button>
         <button className="default-button" onClick={() => navigate("/trips")}>
           SEARCH TRIPS
         </button>
