@@ -82,7 +82,7 @@ function SignInForm() {
           <h1 className="l-font green-font bold-font">
             SIGN <span className="l-font yellow-font bold-font">IN</span>
           </h1>
-          <input name="email" id="email" placeholder="Email" />
+          <input name="email" id="email" type="email" placeholder="Email" />
           <div className="password-input-container">
             <input
               name="password"
