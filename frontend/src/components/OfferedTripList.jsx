@@ -17,11 +17,11 @@ function OfferedTripList({ offeredTrips }) {
 
   return (
     <div className="OfferedTripList in-body">
-      {!offeredTrips || !Array.isArray(offeredTrips) ? (
+      {offeredTrips.length === 0 ? (
         <div className="no-trip">
           <p className="body-item">
             You have not offered any trip yet! Go Green with WAKA, click to
-            offer a trip now!{" "}
+            offer a trip now!
           </p>
           <img
             className="body-item"
