@@ -37,15 +37,15 @@ function CompleteProfileBody() {
   return (
     <div className="CompleteProfileBody in-body">
       <div>
-        <h1>To insert placeholder for profile photo</h1>
+        <h1>To upload a profile photo</h1>
         <button className="yellow-button">UPLOAD PHOTO</button>
       </div>
       <form className="complete-profile-form" onSubmit={handleSubmit}>
         <h1 className="green-font bold-font">COMPLETE YOUR PROFILE</h1>
         <label>First Name:</label>
-        <input type="text" name="firstName" id="firstName"></input>
+        <input type="text" name="firstName" id="firstName" required></input>
         <label>Last Name:</label>
-        <input type="text" name="lastName" id="lastName"></input>
+        <input type="text" name="lastName" id="lastName" required></input>
         <label>Base Location:</label>
         <input type="text" name="baseLocation" id="baseLocation"></input>
         <label>Profile Summary:</label>
