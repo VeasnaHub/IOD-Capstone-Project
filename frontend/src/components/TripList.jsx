@@ -68,7 +68,7 @@ function TripList() {
           <img
             className="body-item"
             src="../src/assets/Searchtrippage.jpg"
-            style={{ width: "500px", height: "auto" }}
+            style={{ width: "400px", height: "auto" }}
           />
         </div>
       ) : (
