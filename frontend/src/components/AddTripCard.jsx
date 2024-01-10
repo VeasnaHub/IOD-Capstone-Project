@@ -1,12 +1,9 @@
-// import { useNavigate } from "react-router-dom";
 import { useUserContext } from "../context/UserContext";
 import { useState } from "react";
 import axios from "axios";
 
 function AddTripCard() {
   const { currentUser, handleUpdateUser } = useUserContext();
-  // const navigate = useNavigate();
-  // const [isDialogOpen, setDialogOpen] = useState(true);
   const [errMsg, setErrMsg] = useState("");
   const [confirmMsg, setConfirmMsg] = useState("");
 
