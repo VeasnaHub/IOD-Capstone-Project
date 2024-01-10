@@ -1,5 +1,5 @@
 import SignUpForm from "./SignUpForm";
-import Logo from "./logo";
+import Logo from "./Logo";
 
 function SignUpPageBody() {
   return (

@@ -1,4 +1,4 @@
-import Logo from "./logo";
+import Logo from "./Logo";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useUserContext } from "../context/UserContext";

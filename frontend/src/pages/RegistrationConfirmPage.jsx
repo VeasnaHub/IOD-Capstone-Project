@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import NavBarHome from "../components/NavBarHome";
-import Logo from "../components/logo";
+import Logo from "../components/Logo";
 
 function RegistrationConfirmPage() {
   const navigate = useNavigate();
