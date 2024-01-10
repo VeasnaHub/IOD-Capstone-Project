@@ -149,7 +149,7 @@ button {
 
 .green-button {
   color: #FFFFFF;
-  background-color: #39BB4E;
+  background: linear-gradient(to top, #39BB4E, #2f9640); 
   border: none;
   border-radius: 5px;
   font-size: 0.8rem;
@@ -173,7 +173,7 @@ button {
 
 .yellow-button {
   color: #FFFFFF;
-  background-color: #ffc801;
+  background: linear-gradient(to top, #ffc801, #d1a402);
   border: none;
   border-radius: 5px;
   font-size: 0.8rem;
@@ -194,6 +194,32 @@ button {
   background-color: rgba(57, 187, 78, 0.7);
   transition: background-color 0.1s ease-in-out;
   transform: perspective(170px) rotateX(36deg) translate(5px);
+}
+
+.user-button {
+  color: #4A6173;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  height: 35px;
+  width: 130px;
+  font-weight: 700;
+}
+
+.user-button:hover {
+  /* border: 1px solid #39BB4E; */
+  transform: perspective(170px) rotateX(30deg) translate(2px);
+  box-shadow: rgba(74, 97, 115, 0.3) 0px 5px 5px 0px;
+  background: linear-gradient(to top, #39BB4E, #2f9640);
+  color: #FFFFFF
+}
+
+.user-button:active {
+  background-color: #ffc801;
+  transition: background-color 0.1s ease-in-out;
+  transform: perspective(170px) rotateX(36deg) translate(5px);
+ 
 }
 
 .Footer {
@@ -276,7 +302,7 @@ input:focus {
 
 .in-body {
   border: 1px solid rgba(74, 97, 115, 0.5);
-  padding: 10px;
+  padding: 11px;
   border-radius: 5px;
   min-height: 400px;
   margin: 20px 20px;
@@ -313,20 +339,91 @@ input:focus {
   display: flex;
   flex-flow: wrap;
   justify-content: center;
-  margin: 10px 10px 10px 10px;
+  margin: 5px 5px 5px 5px;
 
 }
 
+/* .offered-trip-card {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  margin: 5px 5px 5px 5px;
+
+} */
+
 .trip-card {
   display: grid;
-  grid-template-columns: 85px 240px 50px;
+  grid-template-columns: 85px 235px 40px;
   grid-template-rows: 200px 30px;
   border: 1px solid rgba(74, 97, 115, 0.5);
   padding: 15px;
   border-radius: 5px;
-  width: 368px;
+  width: 360px;
   line-height: 5px;
-  margin: 0px 10px 10px 10px;
+  margin: 5px 5px 5px 5px;
+  box-shadow: rgba(74, 97, 115, 0.1) 5px 5px 5px 0px;
+}
+
+.offered-trip-card {
+  display: grid;
+  grid-template-columns: 90px 240px;
+  grid-template-rows: 200px 40px;
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 15px;
+  border-radius: 5px;
+  width: 320px;
+  line-height: 5px;
+  margin: 5px 5px 5px 5px;
+  box-shadow: rgba(74, 97, 115, 0.1) 5px 5px 5px 0px;
+}
+
+.booking-request-trip-card {
+  display: grid;
+  grid-template-columns: 120px 240px;
+  grid-template-rows: 260px 35px;
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  width: 360px;
+  line-height: 5px;
+  margin: 5px 5px 5px 5px;
+  box-shadow: rgba(74, 97, 115, 0.1) 5px 5px 5px 0px;
+}
+
+.booking-status-trip-card {
+  display: grid;
+  grid-template-columns: 120px 240px;
+  grid-template-rows: 260px 35px;
+  border: 1px solid rgba(74, 97, 115, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  width: 360px;
+  line-height: 5px;
+  margin: 5px 5px 5px 5px;
+  box-shadow: rgba(74, 97, 115, 0.1) 5px 5px 5px 0px;
+}
+
+.booking-request-card-section1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.booking-request-card-section2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2
+}
+
+.booking-request-card-section3 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  flex-direction: row;
 }
 
 .trip-card-section1 {
@@ -446,6 +543,7 @@ input:focus {
   opacity: 0;
 }
 
+/* To set the appearance for the checkbox. */
 .check-box+label::before {
   content: "";
   display: inline-block;
@@ -457,6 +555,8 @@ input:focus {
   vertical-align: middle;
   border-radius: 5px
 }
+
+/* to set style the appearances of the checkbox when it is checked*/
 
 .check-box:checked+label::before {
   content: "\2713";
@@ -511,6 +611,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3
 }
 
 .dialog-content {
@@ -545,7 +646,7 @@ input:focus {
 
 .action-column {
   text-align: center;
-  width: 270px;
+  width: 280px;
 }
 
 .action-column-small {
@@ -589,27 +690,59 @@ tr>td {
   border-bottom: 1px solid rgba(74, 97, 115, 0.5);
 }
 
-@media (max-width: 700px) {
-  .offered-trip-table {
-    max-width: 100%;
-    overflow-x: auto;
-    display: block;
-  }
-}
-
-@media (max-width: 900px) {
-  .booking-request-table {
-    max-width: 100%;
-    overflow-x: auto;
-    display: block;
-  }
-}
-
-@media (max-width: 900px) {
+/* @media (max-width: 900px) {
   .booking-status-table {
     max-width: 100%;
     overflow-x: auto;
     display: block;
+  }
+} */
+
+.offered-trip-mobile-list {
+  display: none
+}
+
+.booking-request-mobile-list {
+  display: none
+}
+
+.booking-status-mobile-list {
+  display: none
+}
+
+@media (max-width: 900px) {
+  .booking-status-desktop-table {
+    display: none;
+  }
+
+  .booking-status-mobile-list {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .offered-trip-desktop-table {
+    display: none;
+  }
+
+  .offered-trip-mobile-list {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .desktop-table-booking-request {
+    display: none;
+  }
+
+  .booking-request-mobile-list {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
   }
 }
 
