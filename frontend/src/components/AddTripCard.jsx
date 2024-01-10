@@ -149,13 +149,22 @@ function AddTripCard() {
             <label>Departure Time:</label>
           </div>
           <div className="departure-time-input">
-            <input type="time" name="departureTime" id="departureTime"></input>
+            <input 
+              type="time" 
+              name="departureTime" 
+              id="departureTime"
+            ></input>
           </div>
           <div>
             <label>Price($):</label>
           </div>
           <div className="price-input">
-            <input type="number" name="unitPrice" id="unitPrice"></input>
+            <input 
+              type="number" 
+              name="unitPrice" 
+              id="unitPrice"
+              min="1"
+            ></input>
           </div>
           <div>
             <label>Available Seats:</label>
@@ -165,6 +174,7 @@ function AddTripCard() {
               type="number"
               name="availableSeats"
               id="availableSeats"
+              min="1"
             ></input>
           </div>
           <button className="green-button trip-add-button" type="submit">
