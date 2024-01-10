@@ -135,12 +135,16 @@ button {
 }
 
 .default-button:hover {
-  border: 1px solid #39BB4E
+  /* border: 1px solid #39BB4E; */
+  transform: perspective(170px) rotateX(30deg) translate(2px);
+  box-shadow: rgba(74, 97, 115, 0.3) 0px 5px 5px 0px;
 }
 
 .default-button:active {
   background-color: #ffc801;
   transition: background-color 0.1s ease-in-out;
+  transform: perspective(170px) rotateX(36deg) translate(5px);
+ 
 }
 
 .green-button {
@@ -151,16 +155,20 @@ button {
   font-size: 0.8rem;
   height: 35px;
   width: 130px;
-  font-weight: 700
+  font-weight: 700;
+  transform: perspective(200px) rotateX(25deg);
+  box-shadow: rgba(57, 187, 78, 0.4) 0px 5px 5px 0px;
 }
 
 .green-button:hover {
-  background-color: rgba(57, 187, 78, 0.7)
+  background-color: rgba(57, 187, 78, 0.7);
+  transform: perspective(170px) rotateX(30deg) translate(2px);
 }
 
 .green-button:active {
   background-color: #ffc801;
   transition: background-color 0.1s ease-in-out;
+  transform: perspective(170px) rotateX(36deg) translate(5px);
 }
 
 .yellow-button {
@@ -171,16 +179,21 @@ button {
   font-size: 0.8rem;
   height: 35px;
   width: 130px;
-  font-weight: 700
+  font-weight: 700;
+  font-weight: 700;
+  transform: perspective(200px) rotateX(25deg);
+  box-shadow: rgba(255, 200, 1, 0.4) 0px 5px 5px 0px;
 }
 
 .yellow-button:hover {
-  background-color: rgba(255, 200, 1, 0.6)
+  background-color: rgba(255, 200, 1, 0.6);
+  transform: perspective(170px) rotateX(30deg) translate(2px);
 }
 
 .yellow-button:active {
   background-color: rgba(57, 187, 78, 0.7);
   transition: background-color 0.1s ease-in-out;
+  transform: perspective(170px) rotateX(36deg) translate(5px);
 }
 
 .Footer {
@@ -189,7 +202,8 @@ button {
   background: rgba(57, 187, 78, 0.7);
   align-items: center;
   height: 150px;
-  flex-flow: wrap
+  flex-flow: wrap;
+  box-shadow: rgba(74, 97, 115, 0.1) 5px 5px 5px 0px;
 }
 
 .SignInPageBody {
@@ -247,7 +261,8 @@ input {
   height: 30px;
   border-radius: 5px;
   border: 1px solid rgba(74, 97, 115, 0.5);
-  margin: 10px 0px
+  margin: 10px 0px;
+  box-shadow: rgba(74, 97, 115, 0.1) 5px 5px 5px 0px;
 }
 
 input:hover {
@@ -621,3 +636,4 @@ tr>td {
   align-items: flex-start;
   justify-content: space-evenly;
 }
+

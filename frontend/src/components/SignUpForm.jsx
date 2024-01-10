@@ -50,41 +50,44 @@ function SignUpForm() {
       });
   };
 
-  return (
-    <form className="SignUpForm" onSubmit={handleSubmit}>
-      <h1 className="l-font green-font bold-font">
-        SIGN <span className="l-font yellow-font bold-font">UP</span>
-      </h1>
-      <input 
-        name="email"
-        id="email" 
-        type="email"
-        placeholder="Email" />
-      <div className="password-input-container">
+    return (
+      <form className="SignUpForm" onSubmit={handleSubmit}>
+        <h1 className="l-font green-font bold-font">
+          SIGN <span className="l-font yellow-font bold-font">UP</span>
+        </h1>
         <input
-          name="password"
-          id="password"
-          type="password"
-          placeholder="Password"
+          name="email"
+          id="email"
+          type="email"
+          required
+          placeholder="Email" />
+        <div className="password-input-container">
+          <input
+            name="password"
+            id="password"
+            type="password"
+            required
+            placeholder="Password"
+          />
+        </div>
+        <input
+          name="dateOfBirth"
+          id="dateOfBirth"
+          required
+          placeholder="Date of Birth (YYYY-MM-DD)"
         />
-      </div>
-      <input
-        name="dateOfBirth"
-        id="dateOfBirth"
-        placeholder="Date of Birth (YYYY-MM-DD)"
-      />
-      <p className="s-font grey-font" style={{ marginTop: "0px" }}>
-        User must be 18 years of age or older to be able to create an account.
-      </p>
-      <button className="green-button" type="submit">
-        CREATE AN ACCOUNT
-      </button>
-      {result && <p className="error-message">{result}</p>}
-      <p>
-        <a href="/signin">Already have an account? Please log in.</a>
-      </p>
-    </form>
-  );
-}
+        <p className="s-font grey-font" style={{ marginTop: "0px" }}>
+          User must be 18 years of age or older to be able to create an account.
+        </p>
+        <button className="green-button" type="submit">
+          CREATE AN ACCOUNT
+        </button>
+        {result && <p className="error-message">{result}</p>}
+        <p>
+          <a href="/signin">Already have an account? Please log in.</a>
+        </p>
+      </form>
+    );
+  }
 
 export default SignUpForm;
