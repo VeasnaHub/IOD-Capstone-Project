@@ -65,7 +65,7 @@ function LoggedNavBar() {
         <button className="default-button" onClick={handleLogout}>
           LOG OUT
         </button>
-        <button className="default-button green-font">
+        <button className="user-button">
           Welcome {currentUser.firstName}!
         </button>
       </nav>
