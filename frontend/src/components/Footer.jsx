@@ -1,4 +1,4 @@
-import Logo from "./logo";
+import Logo from "./Logo";
 import EmailIcon from "@mui/icons-material/Email";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -6,7 +6,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 function Footer() {
   return (
     <div className="Footer">
-      <Logo />
+      <Logo style={{ fontSize: '30px' }}/>
       <div>
         <h3 className="m-font white-font bold-font">DOWNLOAD</h3>
         <li className="s-font white-font">IOS App</li>

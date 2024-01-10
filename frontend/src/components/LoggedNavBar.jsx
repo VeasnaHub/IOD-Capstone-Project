@@ -29,7 +29,7 @@ function LoggedNavBar() {
 
   return (
     <div className={`NavBarHome ${isMenuOpen ? "menu-open" : ""}`}>
-      <Logo />
+      <Logo style={{ fontSize: '30px' }} />
       <nav className={`nav-container ${isMenuOpen ? "menu-open" : ""}`}>
         <button className="default-button">COMMUNITY</button>
         <button className="default-button" onClick={() => navigate("/trips")}>

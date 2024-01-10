@@ -1,4 +1,4 @@
-import Logo from "./logo";
+import Logo from "./Logo";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ function NavBarHome() {
 
   return (
     <div className={`NavBarHome ${isMenuOpen ? "menu-open" : ""}`}>
-      <Logo />
+      <Logo style={{ fontSize: '30px' }} />
       <nav className={`nav-container ${isMenuOpen ? "menu-open" : ""}`}>
         <button className="default-button" onClick={() => navigate("/")}>
           HOME

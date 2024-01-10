@@ -1,7 +1,7 @@
-function Logo() {
+function Logo({ style }) {
   return (
-    <span className="green-font l-font bold-font">
-      WAK<span className="yellow-font l-font bold-font">A</span>
+    <span className="green-font l-font bold-font" style={style}>
+      WAK<span className="yellow-font l-font bold-font" style={style}>A</span>
     </span>
   );
 }
