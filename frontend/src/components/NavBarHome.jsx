@@ -13,7 +13,7 @@ function NavBarHome() {
 
   return (
     <div className={`NavBarHome ${isMenuOpen ? "menu-open" : ""}`}>
-      <Logo style={{ fontSize: '30px' }} />
+      <Logo style={{ fontSize: '30px', textShadow: "2px 3px 3px rgba(0, 0, 0, 0.2)" }} />
       <nav className={`nav-container ${isMenuOpen ? "menu-open" : ""}`}>
         <button className="default-button" onClick={() => navigate("/")}>
           HOME

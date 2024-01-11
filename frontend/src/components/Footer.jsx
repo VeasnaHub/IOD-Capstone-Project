@@ -6,7 +6,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 function Footer() {
   return (
     <div className="Footer">
-      <Logo style={{ fontSize: '30px' }}/>
+      <Logo style={{ fontSize: '30px', textShadow: "3px 3px 4px rgba(255, 255, 255, 0.3)" }}/>
       <div>
         <h3 className="m-font white-font bold-font">DOWNLOAD</h3>
         <li className="s-font white-font">IOS App</li>
