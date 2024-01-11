@@ -1,14 +1,16 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect } from "react";
 import axios from "axios";
 import { useUserContext } from "../context/UserContext";
 import useBookingRequests from "../hooks/useBookingRequests";
+import { useNavigate } from "react-router-dom";
 
 function BookingRequestList() {
+  
   const { currentUser } = useUserContext();
+  const navigate = useNavigate();
 
   // Using the custom hook to fetch booking requests
-  const { bookingRequests, message, fetchData } =
-    useBookingRequests(currentUser);
+  const { bookingRequests, message, fetchData } = useBookingRequests(currentUser);
 
   // Fetch data when the component mounts
   useEffect(() => {
@@ -63,8 +65,11 @@ function BookingRequestList() {
           <div className="body-item">
             <p>You have no booking requests being sent through!</p>
             <p>
-              Want to review your offered trips?{" "}
-              <button className="green-button" href="/offeredtrips">
+              Review your offered trips or add new trip?{" "}
+              <button 
+                className="green-button"
+                onClick={() => navigate("/offeredtrips")}
+              >
                 CLICK HERE
               </button>
             </p>

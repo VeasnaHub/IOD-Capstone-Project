@@ -1,20 +1,21 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import { useUserContext } from "../context/UserContext";
-import useBookings from "../hooks/useBookings";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-function BookingList() {
+function BookingList({ bookings }) {
   const { currentUser } = useUserContext();
-
-  // Using the custom hook to fetch bookings
-  const { bookings, message, fetchData } = useBookings(currentUser);
-
   const navigate = useNavigate();
 
-  // Fetch data when the component mounts
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const handleDelete = async (bookingId) => {
+    try {
+      await axios.delete(`/api/bookings/${bookingId}`, {
+        headers: { "x-access-token": currentUser.token },
+    });
+  } catch (err) {
+    console.error(err.message);
+    }
+  }
 
   return (
     <div className="BookingList in-body">
@@ -70,7 +71,11 @@ function BookingList() {
                   <td className="unit-price">{booking.trip.unitPrice}</td>
                   <td>{booking.status}</td>
                   <td className="action-column-small">
-                    <button className="yellow-button">Cancel Request</button>
+                    <button
+                      className="yellow-button"
+                      onClick={() => handleDelete(booking.id)}
+                      >
+                        Cancel Request</button>
                   </td>
                 </tr>
               ))}
@@ -108,7 +113,11 @@ function BookingList() {
                   <p className="bold-font">{booking.requestedSeat}</p>
                   <p className="bold-font">{booking.trip.unitPrice} $</p>
                   <p className="bold-font">{booking.status}</p>
-                  <button className="yellow-button">Cancel Request</button>
+                  <button
+                    className="yellow-button"
+                    onClick={() => handleDelete(booking.id)}
+                  >
+                    Cancel Request</button>
                 </div>
               </div>
             ))}
