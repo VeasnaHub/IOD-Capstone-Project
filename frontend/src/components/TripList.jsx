@@ -94,12 +94,12 @@ function TripList() {
                 <p className="bold-font">{trip.departure}</p>
                 <p className="bold-font">{trip.destination}</p>
                 <p className="bold-font">{trip.serviceDay}</p>
-                <p className="bold-font">{trip.departureTime}</p>
+                <p className="bold-font">{trip.departureTime.slice(0, 5)}</p>
                 <p className="bold-font">{trip.unitPrice} $</p>
                 <p className="bold-font">{trip.availableSeats}</p>
               </div>
               <div className="trip-card-section3">
-                <p>Photo</p>
+                  <img className="driver" src="../src/assets/Driver.jpg"/> 
               </div>
               <div className="trip-card-section4">
                 <label>Enter Booking Seat(s):</label>

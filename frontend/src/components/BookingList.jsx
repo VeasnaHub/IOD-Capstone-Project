@@ -49,7 +49,7 @@ function BookingList({ bookings }) {
                 <th>Departure</th>
                 <th>Destination</th>
                 <th className="service-day">Service Day</th>
-                <th className="departure-time">Deaprt Time</th>
+                <th className="departure-time">Depart Time</th>
                 <th className="seats">Requested Seats</th>
                 <th className="unit-price">Unit Price</th>
                 <th>Status</th>
@@ -65,7 +65,7 @@ function BookingList({ bookings }) {
                   <td>{booking.trip.destination}</td>
                   <td className="service-day">{booking.trip.serviceDay}</td>
                   <td className="departure-time">
-                    {booking.trip.departureTime}
+                    {booking.trip.departureTime.slice(0, 5)}
                   </td>
                   <td className="seats">{booking.requestedSeat}</td>
                   <td className="unit-price">{booking.trip.unitPrice}</td>
